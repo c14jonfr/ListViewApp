@@ -2,6 +2,7 @@ package org.brohede.marcus.listviewapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<String> listData = new ArrayList<String> (Arrays.asList(mountainNames));
+        List<String> mountainData = new ArrayList<String> (Arrays.asList(mountainNames));
 
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), R.layout.list_item_textview, R.id.my_item_listview, mountainData)
         // The onCreate method is run when the app is created.
         // Before you can implement this you need to create the layout xml files that
         // will hold/show your data created here. You need three create things:
