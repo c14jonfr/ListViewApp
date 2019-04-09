@@ -1,11 +1,14 @@
 package org.brohede.marcus.listviewapp;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(getApplicationContext(), mountainLocations[0], Toast.LENGTH_SHORT).show();
+
 
         List<String> mountainData = new ArrayList<String> (Arrays.asList(mountainNames));
 
@@ -37,7 +40,19 @@ public class MainActivity extends AppCompatActivity {
         myListView.setAdapter(adapter);
 
 
-      
+
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), mountainLocations[position]+"\n"+mountainHeights[position]+" m.a.s.l.", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+
 
         // The onCreate method is run when the app is created.
         // Before you can implement this you need to create the layout xml files that
